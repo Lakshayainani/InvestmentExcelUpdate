@@ -32,7 +32,7 @@ count = int(df[df['Name'] == 'Number of scrips'].index[0])
 for i in range(starting, starting + count):
     stockSymbolCell = StockSymbolColumn + str(i)
     stockLTPCell = currentStockPriceColumn + str(i)
-    print(str(stock_sheet[stockSymbolCell].value.upper()) + ":" + str(
+    print(str(stock_sheet[stockSymbolCell].value.upper()) + " : " + str(round(float(get_ltp(str(stock_sheet[stockSymbolCell].value.upper())))- float(stock_sheet[stockLTPCell].value),3))+ " : " + str(
         get_ltp(str(stock_sheet[stockSymbolCell].value.upper()))))
     stock_sheet[stockLTPCell] = float(get_ltp(str(stock_sheet[stockSymbolCell].value.upper())))
 
